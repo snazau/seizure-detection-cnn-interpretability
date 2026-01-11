@@ -325,7 +325,7 @@ def visualize_samples(
             channels_to_show=channels_to_show,
             segment_of_int_idx_start=segment_of_int_idx_start,
             segment_of_int_idx_end=segment_of_int_idx_end,
-            save_path=os.path.join(visualization_dir, set_name, f'{subject_key.replace("/", "_")}_seizure{int(prediction_number[idx])}_V7.png'),
+            save_path=os.path.join(visualization_dir, set_name, f'{subject_key.replace("/", "_")}_seizure{int(prediction_number[idx])}.png'),
             sfreq=128,
             time_shift=time_starts[idx],
             seizure_times_list=seizure_times_list,
@@ -439,8 +439,8 @@ def visualize_predicted_segment_v2(checkpoint_path, model_params, subject_eeg_pa
 
 
 if __name__ == '__main__':
-    subject_key = 'example_01_seizure_01'
-    subject_eeg_path = './assets/eeg/data1/example_01.dat'
+    subject_key = 'example_01'
+    subject_eeg_path = './assets/eeg/data1/example_01.fif'
     checkpoint_path = './assets/checkpoints/two_stage/best.pth.tar'
     prediction_data_path = './assets/prediction_examples/example_01.json'
     prediction_set_name = 'tp'
