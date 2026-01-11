@@ -56,7 +56,7 @@ def get_gradcam(
     model_kwargs = model_params.get('kwargs', dict())
     model = globals()[model_class_name](**model_kwargs)
 
-    checkpoint = torch.load(checkpoint_path)
+    checkpoint = torch.load(checkpoint_path, weights_only=False)
     state_dict = checkpoint['model']['state_dict']
     try:
         model.load_state_dict(state_dict)
