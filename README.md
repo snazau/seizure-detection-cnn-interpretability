@@ -54,15 +54,15 @@ seizure-detection-cnn-interpretability
 
 This section links the mathematical formulations presented in the paper with their implementations in this repository.
 
-#### Channel importance $CI_j$ (Eq. 7)
+#### Channel importance $CI_j$ (Eq. 8)
 Channel Importance is used for region importance $RI^R$ estimation. It is measured as the change in the model’s prediction when the signal from the channel of interest is replaced by the baseline signal.
 The implementation for this is located in the `main.py` (Lines 90-109). The code iterates one-by-one through all channels, performs the occlusion using a baseline signal, and calculates the resulting impact on the model's output
 
-#### Time-frequency importance map $FTI$ (Eq. 12)
+#### Time-frequency importance map $FTI$ (Eq. 13)
 To identify important frequency ranges, we compute a time-frequency importance map ($FTI$) using Grad-CAM for each 10-sec segment.
 The implementation for this is located in `main.py` (Lines 77-86). This block gets a time-frequency map for each segment, which later will be used to estimate the importance of the individual frequencies (Lines 111-113)
 
-#### Frequency-spatial importance (Eq. 14)
+#### Frequency-spatial importance (Eq. 15)
 Frequency-spatial importance score $FRI_{[f_0, f_1]}^R$ is defined as the dot product of region importance $RI^R$ and frequency range importance $FI_{[f_0, f_1]}$.
 Considering 5 frequency bands and 5 regions, this generates the 5×5 heatmap used for global and local interpretation.
 The implementation for this is located in `visualization.py` (Lines 19-35). The code calculates frequency range importance $FI_{[f_0, f_1]}$, dot product, and produces the final interpretability matrix.
